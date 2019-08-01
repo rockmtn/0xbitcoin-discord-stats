@@ -1,11 +1,12 @@
 # 0xBitcoin Discord stats
-
-- [Example chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vSfTvIo5dtrDZ416hOmPR_eLyKwplA8YNNDbpMdFw58K-8Obi5PB6u6UZGmQzuekvzmY4Gwcjrdymct/pubchart?oid=439616913&format=image)
-- [Example spreadsheet](https://docs.google.com/spreadsheets/d/1ameHdrmsoXp37NXhfC7AXE8dI4UfVS5N4RJBBHXdwQI/edit?usp=sharing)
+![0xBitcoin Discord members over time](https://docs.google.com/spreadsheets/d/e/2PACX-1vSfTvIo5dtrDZ416hOmPR_eLyKwplA8YNNDbpMdFw58K-8Obi5PB6u6UZGmQzuekvzmY4Gwcjrdymct/pubchart?oid=439616913&format=image)
 
 ## Scripts
 
 ### `member_stats.rb`
+
+- [Members over time](https://docs.google.com/spreadsheets/d/1ameHdrmsoXp37NXhfC7AXE8dI4UfVS5N4RJBBHXdwQI/edit#gid=670755958) (chart)
+- [Members over time](https://docs.google.com/spreadsheets/d/1ameHdrmsoXp37NXhfC7AXE8dI4UfVS5N4RJBBHXdwQI/edit?usp=sharing) (spreadsheet)
 
 Read all the guild member data from the 0xBitcoin Discord, find the join date for each user, and
 compute how many new members have joined per week. It writes the output data to `members.tsv` in
@@ -29,6 +30,9 @@ week	new members	total members
 
 ### `message_stats.rb`
 
+- [Messages over time](https://docs.google.com/spreadsheets/d/1ameHdrmsoXp37NXhfC7AXE8dI4UfVS5N4RJBBHXdwQI/edit#gid=95119642) (chart)
+- [Messages over time](https://docs.google.com/spreadsheets/d/1ameHdrmsoXp37NXhfC7AXE8dI4UfVS5N4RJBBHXdwQI/edit#gid=1552476287) (spreadsheet)
+
 Search for all messages from the 0xBitcoin Discord, find total sent per week. It writes the output
 data to `messages.tsv` in tab-separated format, which you can copy-paste into Excel or Google
 Sheets. Here's what the data looks like (header line added for clarity):
@@ -48,7 +52,7 @@ week	messages
 ...
 ```
 
-Note: This message activity also includes Discord's join messages (e.g., "A wild Internal\_Toast has
+Note: This message activity also includes Discord's join messages (e.g., "A wild Infernal\_Toast has
 appeared"), but the number of these is very low relative to total message count (maybe 1%).
 
 * * *
