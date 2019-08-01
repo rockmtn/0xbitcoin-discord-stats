@@ -1,33 +1,23 @@
 # read guild members from Discord,
 # output a tab-separated file with number of joins per week and running total of members.
 
-require "httparty"
-require "json"
 require "time"
-require "yaml"
+require "./config"
+require "./discord_api"
 
-DAYS_PER_BIN = 7 # set to 7 for weekly stats
+ZXB_GUILD_ID    = "412477591778492427"
+DAYS_PER_BIN    = 7 # set to 7 for weekly stats
 SECONDS_PER_BIN = DAYS_PER_BIN * 86400
-ZxBITCOIN_GUILD_ID = "412477591778492427"
-URL = "https://discordapp.com/api/v6/guilds/#{ZxBITCOIN_GUILD_ID}/members"
-FILENAME = "discord.tsv"
+FILENAME        = "members.tsv"
 
-config = YAML::load_file("config.yml")
-@token = config["token"]
-
-def get_users(after)
-  url = URL + "?limit=1000&after=#{after}"
-  puts url
-  headers = {"accept":"*/*", "accept-language":"en-US", "authorization": @token}
-  r = HTTParty.get(url, headers: headers, format: :plain)
-  JSON.parse(r, symbolize_names: true)
-end
+load_config!
+discord = DiscordApi.new(@config["token"])
 
 puts "loading users..."
 users = []
 after = 0
 loop do
-  j = get_users(after)
+  j = discord.get_users(ZXB_GUILD_ID, after: after)
   puts "  got #{j.length} users"
   break if j.empty?
   users += j
