@@ -2,7 +2,10 @@
 
 ![0xBitcoin Discord members over time](https://docs.google.com/spreadsheets/d/e/2PACX-1vSfTvIo5dtrDZ416hOmPR_eLyKwplA8YNNDbpMdFw58K-8Obi5PB6u6UZGmQzuekvzmY4Gwcjrdymct/pubchart?oid=439616913&format=image)
 
-This script reads all the guild member data from the 0xBitcoin Discord, finds the join date for each user, and computes how many new members have joined per week. It writes the output data to `discord.tsv` in tab-separated format, which you can copy-paste into Excel or Google Sheets. Here's what the data looks like:
+This script reads all the guild member data from the 0xBitcoin Discord, finds the join date for each
+user, and computes how many new members have joined per week. It writes the output data to
+`discord.tsv` in tab-separated format, which you can copy-paste into Excel or Google Sheets. Here's
+what the data looks like:
 
 ```
 week	new members	total members
@@ -21,19 +24,28 @@ week	new members	total members
 
 - [Example spreadsheet](https://docs.google.com/spreadsheets/d/1ameHdrmsoXp37NXhfC7AXE8dI4UfVS5N4RJBBHXdwQI/edit?usp=sharing)
 
+## Usage
+
+```
+bundle exec ruby member_stats.rb
+```
+
+## Configuration
+
+Here's an example config: [config.example.yml](config.example.yml)
+
+Copy `config.example.yml` to `config.yml` and put your Discord token in it. Here's how to get your
+Discord token:
+
+<https://discordhelp.net/discord-token>
 
 ## Requirements
 
 - Ruby
+- Bundler gem (`gem install bundler`)
 
 ## Get dependencies
 
 ```
 bundle install --path vendor/bundle
 ```
-
-## Configuration
-
-Copy `config.example.yml` to `config.yml` and put your Discord token in it. Here's how to get your Discord token:
-
-<https://discordhelp.net/discord-token>
