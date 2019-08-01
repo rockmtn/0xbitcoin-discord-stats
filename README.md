@@ -26,7 +26,7 @@ week	new members	total members
 
 - Ruby
 
-## Installation
+## Get dependencies
 
 ```
 bundle install --path vendor/bundle
