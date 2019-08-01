@@ -1,11 +1,16 @@
 # 0xBitcoin Discord stats
 
-![0xBitcoin Discord members over time](https://docs.google.com/spreadsheets/d/e/2PACX-1vSfTvIo5dtrDZ416hOmPR_eLyKwplA8YNNDbpMdFw58K-8Obi5PB6u6UZGmQzuekvzmY4Gwcjrdymct/pubchart?oid=439616913&format=image)
+- [Example chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vSfTvIo5dtrDZ416hOmPR_eLyKwplA8YNNDbpMdFw58K-8Obi5PB6u6UZGmQzuekvzmY4Gwcjrdymct/pubchart?oid=439616913&format=image)
+- [Example spreadsheet](https://docs.google.com/spreadsheets/d/1ameHdrmsoXp37NXhfC7AXE8dI4UfVS5N4RJBBHXdwQI/edit?usp=sharing)
 
-This script reads all the guild member data from the 0xBitcoin Discord, finds the join date for each
-user, and computes how many new members have joined per week. It writes the output data to
-`discord.tsv` in tab-separated format, which you can copy-paste into Excel or Google Sheets. Here's
-what the data looks like:
+## Scripts
+
+### `member_stats.rb`
+
+Read all the guild member data from the 0xBitcoin Discord, find the join date for each user, and
+compute how many new members have joined per week. It writes the output data to `members.tsv` in
+tab-separated format, which you can copy-paste into Excel or Google Sheets. Here's what the data
+looks like (header line added for clarity):
 
 ```
 week	new members	total members
@@ -22,7 +27,31 @@ week	new members	total members
 ...
 ```
 
-- [Example spreadsheet](https://docs.google.com/spreadsheets/d/1ameHdrmsoXp37NXhfC7AXE8dI4UfVS5N4RJBBHXdwQI/edit?usp=sharing)
+### `message_stats.rb`
+
+Search for all messages from the 0xBitcoin Discord, find total sent per week. It writes the output
+data to `messages.tsv` in tab-separated format, which you can copy-paste into Excel or Google
+Sheets. Here's what the data looks like (header line added for clarity):
+
+```
+week	messages
+2018-02-12	7011
+2018-02-19	23844
+2018-02-26	17755
+2018-03-05	13165
+2018-03-12	12504
+2018-03-19	7291
+2018-03-26	8115
+2018-04-02	9347
+2018-04-09	11890
+2018-04-16	10640
+...
+```
+
+Note: This message activity also includes Discord's join messages (e.g., "A wild Internal\_Toast has
+appeared"), but the number of these is very low relative to total message count (maybe 1%).
+
+* * *
 
 ## Usage
 
