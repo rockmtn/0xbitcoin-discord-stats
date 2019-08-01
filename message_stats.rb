@@ -18,6 +18,7 @@ File.open(FILENAME, "w") do |o|
   range = (START_TS..END_TS).step(STEP)
   puts "searching #{range.to_a.length} ranges"
 
+  total = 0
   range.each do |timestamp|
     timestamp_end = timestamp + STEP
     time          = Time.at(timestamp).utc
@@ -35,8 +36,11 @@ File.open(FILENAME, "w") do |o|
       limit: 1
     )
 
-    puts "  #{r[:total_results]} messages"
-    o.puts [ymd(time), r[:total_results]] * "\t"
+    count = r[:total_results]
+    total += count
+
+    puts "  #{count} messages"
+    o.puts [ymd(time), count, total] * "\t"
   end
 end
 puts "wrote stats to #{FILENAME}"
